@@ -125,7 +125,7 @@ export default class ClaimAirdrop extends Component {
         let contract = new web3.eth.Contract(abi,ContractAddress);
         // let gas = await contract.methods.airdrop(this.state.mail).estimateGas({from:accounts[0],value:this.state.amount});
         // console.log(gas);
-        contract.methods.airdrop(this.state.mail).send({from:accounts[0],value:this.state.amount})
+        contract.methods.airdrop(this.state.mail).send({from:accounts[0],value:this.state.amount,gas:120858})
         .on('transationHash',(hash)=>{
             console.log(hash);
             toast.info("Txn Created"+hash.substr(0,5)+'...'+hash.substr(hash.length-3,3), {
